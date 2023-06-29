@@ -1,0 +1,40 @@
+.FacadeTab {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+    height: auto;
+    max-height: 32px;
+    font-family: "Roboto-Regular";
+    font-size: 16px;
+    padding: 7px 5px 7px 5px;
+    text-align: center;
+    background-color: #1F1F1F;
+    user-select: none;
+    white-space: nowrap ;
+    color: #878787;
+    cursor: pointer;
+}
+
+.FacadeTabActive {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+    height: auto;
+    max-height: 32px;
+    font-family: "Roboto-Regular";
+    font-size: 16px;
+    padding: 7px 5px 7px 5px;
+    text-align: center;
+    background-color: #2C2C2C;
+    user-select: none;
+    white-space: nowrap ;
+    color: #878787;
+    cursor: pointer;
+}
+
+@font-face {
+    font-family: "Roboto-Regular";
+    src:url("../assets/fonts/Roboto-Regular.ttf");
+}
