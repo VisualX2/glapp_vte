@@ -21,8 +21,7 @@ export const OperationMenu = observer(() => {
             sx={{maxHeight: "calc(100% - 36px)",
             [`& .MuiDrawer-paper`]: {
                marginTop: "32px",
-               backgroundColor:"inherit",
-               maxHeight: "calc(100% - 36px)"
+               backgroundColor:"inherit"
               }}} 
             variant="persistent" 
             anchor="left" open={hasSelectedContent()}>
