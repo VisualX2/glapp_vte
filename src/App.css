@@ -2,6 +2,7 @@
   text-align: center;
 }
 
-#facadeview {
+#mainview {
   position: relative;
+  display: flex;
 }

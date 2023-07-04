@@ -1,0 +1,9 @@
+#OperationPanel {
+    min-width: 400px;
+    min-height: 100%;
+    background-color: rgb(56, 56, 56);
+}
+
+#stage {
+    width: 100%;
+}
