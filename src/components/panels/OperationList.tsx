@@ -1,9 +1,9 @@
 import { observer } from "mobx-react"
 import "../../styles/OperationList.css"
 
-export const OperationListPanel = observer(() => {
+export const OperationList = observer(() => {
     return(
-        <div id="OperationPanel">
+        <div id="OperationList">
             
         </div>
     )

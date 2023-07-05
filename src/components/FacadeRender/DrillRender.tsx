@@ -12,7 +12,7 @@ export const DrillRender = observer(() => {
         var dr = []
         if(selectedPart?.opStore.getDrills() !== undefined){
             for(const child of selectedPart?.opStore.getDrills()) {
-                dr.push(<DrillOperation x={child.x} y={child.y} radius={child.diameter/2} partZ={selectedPart.height} deep={child.depth} index={selectedPart.opStore.getDrills().indexOf(child) + 1}></DrillOperation>);
+                dr.push(<DrillOperation drillstore={child} partZ={selectedPart.height} index={selectedPart.opStore.getDrills().indexOf(child) + 1}></DrillOperation>);
             }
         }
         return dr

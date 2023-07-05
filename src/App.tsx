@@ -3,7 +3,7 @@ import { observer } from 'mobx-react'
 import { TabPanel } from './components/panels/TabPanel'
 import { OperationMenu } from './components/panels/OperationMenu'
 import { FacadeViewPanel } from './components/panels/FacadeViewPanel'
-import { OperationListPanel } from './components/panels/OperationListPanel'
+import { OperationPanel } from './components/panels/OperationPanel'
 
 const App = observer(() => {
   return(
@@ -12,7 +12,7 @@ const App = observer(() => {
       <OperationMenu></OperationMenu>
       <div id = "mainview">
         <FacadeViewPanel></FacadeViewPanel>
-        <OperationListPanel></OperationListPanel>
+        <OperationPanel></OperationPanel>
       </div>
     </div>
   )

@@ -41,6 +41,7 @@ export const FacadeViewPanel = observer(() => {
                 draggable
                 onDragMove={() => {
                     stage.current.x(Math.max(-500, Math.min(2000, stage.current.x())))
+                    stage.current.y(Math.max(-500, Math.min(2000, stage.current.y())))
                 }}>
                 <Layer x={160} y={100}>
                     <FacadeRender></FacadeRender>

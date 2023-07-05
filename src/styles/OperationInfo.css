@@ -1,0 +1,13 @@
+#OperationInfo {
+    background-color: rgb(56, 56, 56);
+    flex: 0.6;
+    border-radius: 3px;
+    padding: 4px 4px 4px 4px;
+}
+#noItemMessage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 100%;
+}

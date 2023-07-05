@@ -3,6 +3,7 @@ import { Drill } from "./OperationStores/DrillStore";
 import { CornersStore } from "./CornersStore";
 
 export class OperationListsStore {
+    @observable selectedOp: any
     @observable private drills: (Drill)[]
     @observable corners: CornersStore
 
@@ -25,5 +26,8 @@ export class OperationListsStore {
             return object.id === id;
         });
         this.drills.splice(indexOfObject, 1);
+        if(this.selectedOp.id === id){
+            this.selectedOp = undefined
+        }
     } 
 }

@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 export class Drill{
     id:string
+    type: string
     @observable x:number
     @observable y:number
     @observable depth:number
@@ -13,6 +14,7 @@ export class Drill{
         this.x = x
         this.y = y
         this.depth = depth
+        this.type = "drill"
         this.diameter = diameter
         makeObservable(this)
     }
