@@ -4,6 +4,7 @@ import React from "react"
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2"
 import { Box, Button, TextField, Typography } from "@mui/material"
 import DoneOutlineIcon from '@mui/icons-material/DoneOutline';
+import { useStore } from "../../model/StoreContext"
 
 type InfoDialogUpProps = {
     drillstore:Drill
@@ -14,9 +15,30 @@ export const DrillInfoDialog: React.FC<InfoDialogUpProps> = observer(({drillstor
     const [Y, setY] = React.useState(drillstore.getY().toString());
     const [depth, setDepth] = React.useState(drillstore.depth.toString());
     const [diameter, setDiameter] = React.useState(drillstore.diameter.toString());
+    const store = useStore();
+    var index;
+    if(store.selectedContent !== null){
+        index = store.selectedContent.opStore.getDrills().indexOf(drillstore) + 1
+    }
+    
     return(
         <div id="DrillInfoDialog">
-            <Grid2 container columnSpacing={{ xs: 12, sm: 1, md: 2 }}alignItems="center">
+            <Grid2 container columnSpacing={{ xs: 12, sm: 1, md: 2 }}alignItems="center" rowSpacing={1}>
+            <Grid2 xs={3} >
+                    <Box paddingLeft={2}>
+                        <Typography>
+                            Номер:
+                        </Typography>
+                    </Box>
+                </Grid2>
+                <Grid2 xs ={4}>
+                    <Box>
+                        <Typography>
+                            {index}
+                        </Typography>
+                    </Box>
+                </Grid2>
+                <Grid2 xs={4}></Grid2>
                 <Grid2 xs={3} >
                     <Box paddingLeft={2}>
                         <Typography>
