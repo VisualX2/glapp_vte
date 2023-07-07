@@ -1,4 +1,4 @@
-import { makeObservable, observable } from 'mobx';
+import { action, makeObservable, observable } from 'mobx';
 import { v4 as uuidv4 } from 'uuid';
 
 export class Drill{
@@ -17,5 +17,9 @@ export class Drill{
         this.type = "drill"
         this.diameter = diameter
         makeObservable(this)
+    }
+
+    @action getY(){
+        return this.y
     }
 }
