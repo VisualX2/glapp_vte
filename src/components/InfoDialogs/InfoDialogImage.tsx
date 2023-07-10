@@ -45,7 +45,7 @@ export const InfoDialogUp: React.FC<InfoDialogUpProps> = observer(({selectedOper
             setText("Свердління")
             setImage(<SvgDrillIcon></SvgDrillIcon>)
         }
-    })
+    },[])
 
     const handleRemove = () => {
         if(isDrillOp(selectedOperation)){

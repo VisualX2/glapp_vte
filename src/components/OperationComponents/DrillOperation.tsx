@@ -34,6 +34,7 @@ export const DrillOperation: React.FC<DrillParameters> = observer(({drillstore, 
         }} onClick={() => {
             if(store.selectedContent !== null){
                 store.selectedContent.opStore.selectedOp = drillstore
+                store.utilitydialog.updatedrill = false
             }
         }}></Circle>
             <Circle ref={drill} x={0} y={0} radius={1} stroke="red" strokeWidth={1} listening = {false}></Circle>

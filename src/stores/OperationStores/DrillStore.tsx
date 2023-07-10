@@ -22,4 +22,13 @@ export class Drill{
     @action getY(){
         return this.y
     }
+    @action getX(){
+        return this.x
+    }
+    @action getDepth(){
+        return this.depth
+    }
+    @action getDiameter(){
+        return this.diameter
+    }
 }

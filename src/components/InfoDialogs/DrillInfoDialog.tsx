@@ -1,6 +1,6 @@
 import { observer } from "mobx-react"
 import { Drill } from "../../stores/OperationStores/DrillStore"
-import React from "react"
+import React, { useEffect } from "react"
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2"
 import { Box, Button, TextField, Typography } from "@mui/material"
 import DoneOutlineIcon from '@mui/icons-material/DoneOutline';
@@ -11,12 +11,23 @@ type InfoDialogUpProps = {
 }
 
 export const DrillInfoDialog: React.FC<InfoDialogUpProps> = observer(({drillstore}) => {
-    const [X, setX] = React.useState(drillstore.x.toString());
+    
+    const [X, setX] = React.useState(drillstore.getX().toString());
     const [Y, setY] = React.useState(drillstore.getY().toString());
-    const [depth, setDepth] = React.useState(drillstore.depth.toString());
-    const [diameter, setDiameter] = React.useState(drillstore.diameter.toString());
+    const [depth, setDepth] = React.useState(drillstore.getDepth().toString());
+    const [diameter, setDiameter] = React.useState(drillstore.getDiameter().toString());
     const store = useStore();
     var index;
+
+    useEffect(() => {
+        if(store.utilitydialog.updatedrill === false){
+            setX(drillstore.getX().toString())
+            setY(drillstore.getY().toString())
+            setDepth(drillstore.getDepth().toString())
+            setDiameter(drillstore.getDiameter().toString())
+            store.utilitydialog.updatedrill = true
+        }
+    })
     if(store.selectedContent !== null){
         index = store.selectedContent.opStore.getDrills().indexOf(drillstore) + 1
     }
@@ -55,7 +66,7 @@ export const DrillInfoDialog: React.FC<InfoDialogUpProps> = observer(({drillstor
                             sx={{'& .MuiInputBase-input': {
                                 color: 'white',
                               }}}
-                            defaultValue={X}
+                            value={X}
                             onChange={(event) => { setX(event.target.value) }}
                         />
                     </Box>
@@ -82,7 +93,7 @@ export const DrillInfoDialog: React.FC<InfoDialogUpProps> = observer(({drillstor
                             sx={{'& .MuiInputBase-input': {
                                 color: 'white',
                               }}}
-                            defaultValue={Y}
+                            value={Y}
                             onChange={(event) => { setY(event.target.value) }}
                         />
                     </Box>
@@ -109,7 +120,7 @@ export const DrillInfoDialog: React.FC<InfoDialogUpProps> = observer(({drillstor
                             sx={{'& .MuiInputBase-input': {
                                 color: 'white',
                               }}}
-                            defaultValue={depth}
+                            value={depth}
                             onChange={(event) => { setDepth(event.target.value) }}
                         />
                     </Box>
@@ -136,7 +147,7 @@ export const DrillInfoDialog: React.FC<InfoDialogUpProps> = observer(({drillstor
                             sx={{'& .MuiInputBase-input': {
                                 color: 'white',
                               }}}
-                            defaultValue={diameter}
+                            value={diameter}
                             onChange={(event) => { setDiameter(event.target.value) }}
                         />
                     </Box>
