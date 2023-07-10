@@ -68,6 +68,11 @@ export const DrillInfoDialog: React.FC<InfoDialogUpProps> = observer(({drillstor
                               }}}
                             value={X}
                             onChange={(event) => { setX(event.target.value) }}
+                            onKeyUp= {(e) => {
+                                if (e.key === 'Enter') {
+                                    drillstore.x = parseInt(X)
+                                }
+                            }}
                         />
                     </Box>
                 </Grid2>
@@ -95,6 +100,11 @@ export const DrillInfoDialog: React.FC<InfoDialogUpProps> = observer(({drillstor
                               }}}
                             value={Y}
                             onChange={(event) => { setY(event.target.value) }}
+                            onKeyUp= {(e) => {
+                                if (e.key === 'Enter') {
+                                    drillstore.y = parseInt(Y)
+                                }
+                            }}
                         />
                     </Box>
                 </Grid2>
@@ -122,6 +132,11 @@ export const DrillInfoDialog: React.FC<InfoDialogUpProps> = observer(({drillstor
                               }}}
                             value={depth}
                             onChange={(event) => { setDepth(event.target.value) }}
+                            onKeyUp= {(e) => {
+                                if (e.key === 'Enter') {
+                                    drillstore.depth = parseInt(depth)
+                                }
+                            }}
                         />
                     </Box>
                 </Grid2>
@@ -149,6 +164,11 @@ export const DrillInfoDialog: React.FC<InfoDialogUpProps> = observer(({drillstor
                               }}}
                             value={diameter}
                             onChange={(event) => { setDiameter(event.target.value) }}
+                            onKeyUp= {(e) => {
+                                if (e.key === 'Enter') {
+                                    drillstore.diameter = parseInt(diameter)
+                                }
+                            }}
                         />
                     </Box>
                 </Grid2>
