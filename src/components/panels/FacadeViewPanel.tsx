@@ -12,6 +12,22 @@ export const FacadeViewPanel = observer(() => {
         
     })
 
+    const [scale, setScale] = useState({
+        x:1,
+        y:1
+    })
+
+    useEffect(() => {
+        const handleWindowResize = (e: WheelEvent) => {
+            var scl = scale.x + e.deltaY * -0.001
+            scl = Math.min(Math.max(0.3, scl), 4);
+            console.log(e.deltaY)
+            console.log(scale.x)
+            setScale({x: scl, y: scl })
+        };
+    
+        window.addEventListener("wheel", handleWindowResize);
+      }, [scale])
 
 
     useEffect(() => {
@@ -27,11 +43,13 @@ export const FacadeViewPanel = observer(() => {
         checkSize()
         window.addEventListener('resize', checkSize);
         return () => window.removeEventListener('resize', checkSize);
+
+        
       }, [])
 
     return(
         <div id="stage" ref={divRef}>
-            <Stage width = {dimensions.width} height={dimensions.height} ref={stage}
+            <Stage width = {dimensions.width} height={dimensions.height} ref={stage} scale={scale}
                 style={{
                     backgroundColor:"#1E1E1E",
                     backgroundImage:"linear-gradient(rgba(255,255,255,0.1) 2px, transparent 2px), linear-gradient(90deg, rgba(255,255,255,0.1) 2px, transparent 1px), linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px)",
