@@ -2,17 +2,30 @@ import { useStore } from "../../model/StoreContext";
 import { observer } from "mobx-react";
 import { OpListItem } from "./OpListItem";
 import { Drill } from "../../stores/OperationStores/DrillStore";
+import {ArrowDropDown, ArrowDropUp} from '@mui/icons-material';
+import React from "react";
 
 export const DrillListCategory = observer(() => {
     const store = useStore()
+    const [openedDrills, setOpenedDrills] = React.useState(false)
 
     const checkActivity = (dr: Drill) => {
         if(store.selectedContent?.opStore.selectedOp === dr){
             return true
         } 
         return false
-        
     }
+
+    const takeArrow = () => {
+        if(openedDrills) {
+            return <ArrowDropUp></ArrowDropUp>
+        }
+        return <ArrowDropDown></ArrowDropDown>
+    }
+
+    const handleDropClick = () => {
+        setOpenedDrills(!openedDrills)
+    } 
     const getDrills = () => {
         var dr = []
         if(store.selectedContent !== null)
@@ -35,7 +48,8 @@ export const DrillListCategory = observer(() => {
 
     return(
         <div>
-            {getDrills()}
+            <div style={{display: "flex", cursor: "pointer"}} onClick={() => {handleDropClick()}}>{takeArrow()} Свердління({store.selectedContent?.opStore.getDrills().length})</div>
+            {openedDrills ? getDrills() : ""}
         </div>
     )
 })
