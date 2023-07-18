@@ -19,6 +19,7 @@ export const DrillInfoDialog: React.FC<InfoDialogUpProps> = observer(({drillstor
     const store = useStore();
     var index;
 
+    
     useEffect(() => {
         if(store.utilitydialog.updatedrill === false){
             setX(drillstore.getX().toString())
@@ -27,6 +28,8 @@ export const DrillInfoDialog: React.FC<InfoDialogUpProps> = observer(({drillstor
             setDiameter(drillstore.getDiameter().toString())
             store.utilitydialog.updatedrill = true
         }
+
+        
     })
     if(store.selectedContent !== null){
         index = store.selectedContent.opStore.getDrills().indexOf(drillstore) + 1

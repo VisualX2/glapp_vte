@@ -27,9 +27,9 @@ export const FacadeViewPanel = observer(() => {
         };
     
         window.addEventListener("wheel", handleWindowResize);
-      }, [scale])
-
-
+      }, [scale]
+    )
+    
     useEffect(() => {
         const checkSize = () => {
             if (divRef.current?.offsetHeight && divRef.current?.offsetWidth) {
